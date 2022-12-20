@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const Index = () => {
+export default function Index() {
 	return (
 		<div className="flex flex-col items-center justify-center h-screen max-w-2xl gap-10 mx-auto text-center">
 			<motion.h1
@@ -53,6 +53,4 @@ const Index = () => {
 			</Link>
 		</div>
 	);
-};
-
-export default Index;
+}

@@ -6,11 +6,11 @@ import { useCorrectAnswer } from '../context/CorrectAnswers';
 import parse from 'html-react-parser';
 import { motion } from 'framer-motion';
 
-const Questions = ({ data }: { data: QuestionsProps }) => {
+const Questions = ({ data }: { data: Result[] }) => {
 	const { setCorrectAnswer } = useCorrectAnswer();
 	const [NQuestion, setNQuestion] = useState(0);
 	const [Alternative, setAlternative] = useState('');
-	const actualQuestion: Result = data.results[NQuestion];
+	const actualQuestion: Result = data[NQuestion];
 	const alternatives = [actualQuestion.correct_answer, ...actualQuestion.incorrect_answers];
 	const router = useRouter();
 	console.log(actualQuestion.correct_answer);
@@ -42,13 +42,13 @@ const Questions = ({ data }: { data: QuestionsProps }) => {
 			transition={{
 				duration: 1
 			}}
-			className="px-6 md:px-0 flex flex-col justify-center items-center h-screen max-w-2xl mx-auto gap-5">
-			<h1 className="text-4xl mb-10">{parse(actualQuestion.question)}</h1>
+			className="flex flex-col items-center justify-center h-screen max-w-2xl gap-5 px-6 mx-auto md:px-0">
+			<h1 className="mb-10 text-4xl">{parse(actualQuestion.question)}</h1>
 			{randomAlternatives.map((alternative, index) => {
 				return (
-					<ul key={index} className="w-full flex gap-4 items-center">
+					<ul key={index} className="flex items-center w-full gap-4">
 						<input
-							className="h-6 w-6 border border-gray-300 rounded-sm bg-white checked:bg-slate-600 checked:border-slate-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+							className="float-left w-6 h-6 mt-1 mr-2 align-top transition duration-200 bg-white bg-center bg-no-repeat bg-contain border border-gray-300 rounded-sm cursor-pointer checked:bg-slate-600 checked:border-slate-600 focus:outline-none"
 							type="checkbox"
 							value={alternative}
 							checked={Alternative === alternative}
@@ -76,8 +76,19 @@ const Questions = ({ data }: { data: QuestionsProps }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	const res = await fetch('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple');
-	const data = await res.json();
+	const res1 = await fetch(
+		'https://opentdb.com/api.php?amount=3&difficulty=easy&type=multiple&category=10'
+	);
+	const res2 = await fetch(
+		'https://opentdb.com/api.php?amount=4&difficulty=easy&type=multiple&category=15'
+	);
+	const res3 = await fetch(
+		'https://opentdb.com/api.php?amount=3&difficulty=easy&type=multiple&category=32'
+	);
+	const data1 = await res1.json();
+	const data2 = await res2.json();
+	const data3 = await res3.json();
+	const data = [...data1.results, ...data2.results, ...data3.results];
 	return {
 		props: {
 			data

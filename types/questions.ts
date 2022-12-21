@@ -3,7 +3,7 @@ export interface QuestionsProps {
   results: Result[];
 }
 
-interface Result {
+export interface Result {
   category: string;
   type: string;
   difficulty: string;

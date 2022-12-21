@@ -42,7 +42,7 @@ const Questions = ({ data }: { data: QuestionsProps }) => {
 			transition={{
 				duration: 1
 			}}
-			className="flex flex-col justify-center items-center h-screen max-w-2xl mx-auto gap-5">
+			className="px-6 md:px-0 flex flex-col justify-center items-center h-screen max-w-2xl mx-auto gap-5">
 			<h1 className="text-4xl mb-10">{parse(actualQuestion.question)}</h1>
 			{randomAlternatives.map((alternative, index) => {
 				return (

@@ -5,7 +5,7 @@ const Results = () => {
 	const { CorrectAnswer } = useCorrectAnswer();
 	if (0 <= CorrectAnswer && CorrectAnswer <= 4) {
 		return (
-			<div className="flex flex-col justify-center items-center h-screen max-w-2xl mx-auto gap-5">
+			<div className="px-6 md:px-0 flex flex-col justify-center items-center h-screen max-w-2xl mx-auto gap-5">
 				<h1 className="text-6xl font-bold">Results</h1>
 				<p className="text-xl">
 					<strong>{CorrectAnswer}</strong> of 10
@@ -22,7 +22,7 @@ const Results = () => {
 	}
 	if (5 < CorrectAnswer && CorrectAnswer <= 7) {
 		return (
-			<div className="flex flex-col justify-center items-center h-screen max-w-2xl mx-auto gap-5">
+			<div className=" px-6 md:px-0 flex flex-col justify-center items-center h-screen max-w-2xl mx-auto gap-5">
 				<h1 className="text-6xl font-bold">Results</h1>
 				<p className="text-xl">
 					<strong>{CorrectAnswer}</strong> of 10
@@ -39,7 +39,7 @@ const Results = () => {
 	}
 	if (8 < CorrectAnswer && CorrectAnswer <= 10) {
 		return (
-			<div className="flex flex-col justify-center items-center h-screen max-w-2xl mx-auto gap-5">
+			<div className="px-6 md:px-0 flex flex-col justify-center items-center h-screen max-w-2xl mx-auto gap-5">
 				<h1 className="text-6xl font-bold">Results</h1>
 				<p className="text-3xl">
 					<strong>{CorrectAnswer}</strong> of 10

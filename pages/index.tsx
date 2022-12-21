@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Index() {
 	return (
-		<div className="flex flex-col items-center justify-center h-screen max-w-2xl gap-10 mx-auto text-center">
+		<div className="px-6 md:px-0 flex flex-col items-center justify-center h-screen max-w-2xl gap-10 mx-auto text-center">
 			<motion.h1
 				initial={{
 					opacity: 0,
@@ -32,7 +32,8 @@ export default function Index() {
 					duration: 1
 				}}
 				className="text-xl ">
-				This is a question website, you will answer 10 questions of a varieties of subjects and see if your knolegde is on point
+				This is a question website, you will answer 10 questions of a varieties of subjects and see if
+				your knolegde is on point
 			</motion.p>
 			<Link href="/questions" className="transition-transform active:scale-95 ">
 				<motion.button

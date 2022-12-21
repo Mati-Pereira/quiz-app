@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { QuestionsProps, Result } from '../types/questions';
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -75,7 +75,7 @@ const Questions = ({ data }: { data: QuestionsProps }) => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 	const res = await fetch('https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple');
 	const data = await res.json();
 	return {

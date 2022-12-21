@@ -13,7 +13,6 @@ const Questions = ({ data }: { data: Result[] }) => {
 	const actualQuestion: Result = data[NQuestion];
 	const alternatives = [actualQuestion.correct_answer, ...actualQuestion.incorrect_answers];
 	const router = useRouter();
-	console.log(actualQuestion.correct_answer);
 
 	let randomAlternatives = useMemo(() => alternatives.sort(() => Math.random() - 0.5), [NQuestion]);
 

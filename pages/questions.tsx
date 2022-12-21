@@ -33,15 +33,10 @@ const Questions = ({ data }: { data: Result[] }) => {
 
 	return (
 		<motion.div
-			initial={{
-				opacity: 0
-			}}
-			animate={{
-				opacity: 1
-			}}
-			transition={{
-				duration: 1
-			}}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			transition={{ duration: 1 }}
 			className="flex flex-col items-center justify-center h-screen max-w-2xl gap-5 px-6 mx-auto md:px-0">
 			<h1 className="mb-10 text-4xl">{parse(actualQuestion.question)}</h1>
 			{randomAlternatives.map((alternative, index) => {
